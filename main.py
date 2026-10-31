@@ -1,17 +1,16 @@
 import os
-import requests
 from google import genai
 from google.genai import types
-import json
 from dotenv import load_dotenv
 
 article=input("Enter the article: ").strip()
 
 load_dotenv()
 
-client=genai.Client()
+api_key=os.getenv("API_KEY")
 
-api_key=os.get("API_KEY")
+client=genai.Client(api_key=api_key)
+
 
 config = types.GenerateContentConfig(
     system_instruction = """
